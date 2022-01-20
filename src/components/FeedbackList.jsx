@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
 import React from "react";
 import FeedbackItem from "../components/FeedbackItem";
-export function FeedbackList({ feedback }) {
+
+//
+export function FeedbackList({ feedback, handleDelete }) {
   if (!feedback || feedback.length === 0) {
     return <p>no feedback yet</p>;
   }
@@ -9,7 +11,7 @@ export function FeedbackList({ feedback }) {
   return (
     <div className="feedback-list">
       {feedback.map(({ ...e }, i) => (
-        <FeedbackItem key={i} {...e} />
+        <FeedbackItem key={i} {...e} handleDelete={handleDelete} />
       ))}
     </div>
   );
